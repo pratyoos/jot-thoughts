@@ -1,4 +1,3 @@
-import React from 'react';
 import BlogPost from './BlogPost'; // Reuse BlogPost component
 
 const FeaturedPosts = () => {

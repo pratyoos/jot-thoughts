@@ -1,6 +1,4 @@
 // src/components/HeroSection.tsx
-import React from 'react';
-
 const HeroSection = () => {
   return (
     <section className="bg-blue-600 text-white text-center py-20">

@@ -2,8 +2,10 @@
 import { JSX } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Blog from "./pages/Blog"; // <- now Blog handles both /blog and /blog/:id
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 interface RouteType {
   path: string;
@@ -14,7 +16,9 @@ const routes: RouteType[] = [
   { path: "/", element: <Home /> },
   { path: "/about", element: <About /> },
   { path: "/blog", element: <Blog /> },
-  { path: "/blog/:id", element: <Blog /> }, // same Blog component for blog posts
+  { path: "/blog/:id", element: <Blog /> },
+  { path: "login", element: <Login />},
+  { path: "/signup", element: <Signup /> }, // Assuming signup uses the same component
   { path: "*", element: <NotFound /> },
 ];
 

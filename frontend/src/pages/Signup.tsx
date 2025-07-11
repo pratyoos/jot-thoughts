@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import axiosClient from '../api/axiosClient'; // <-- import axios client
 import InputField from '../components/InputField';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -16,20 +17,23 @@ const Signup = () => {
   const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setError('');
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
     try {
-      // Add your signup API call here
-      // const response = await axios.post('/api/signup', formData);
-      console.log('Signing up with:', formData);
+      const response = await axiosClient.post('/auth/signup', formData);
+      console.log('Signup success:', response.data);
 
-      // If signup successful
-      navigate('/dashboard');
+      // Optionally store token here:
+      // localStorage.setItem('token', response.data.token);
+
+      navigate('/login');
     } catch (err: any) {
-      setError('Something went wrong. Please try again.');
+      setError(err.response?.data?.message || 'Something went wrong. Please try again.');
     }
   };
 
@@ -84,7 +88,7 @@ const Signup = () => {
 
             <button
               type="submit"
-              className="w-full bg-[#44B0E2] text-white py-2 rounded-xl"
+              className="w-full bg-[#44B0E2] hover:bg-[#3A9CCF] text-white py-2 rounded-xl transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               Sign Up
             </button>
@@ -92,7 +96,7 @@ const Signup = () => {
 
           <p className="text-sm text-center mt-4">
             Already have an account?{' '}
-            <Link to="/login" className="text-[#44B0E2] hover:underline">
+            <Link to="/login" className="text-[#44B0E2]">
               Login
             </Link>
           </p>

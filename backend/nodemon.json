@@ -1,0 +1,7 @@
+{
+  "watch": ["index.ts", "src"],
+  "ext": "ts,js,json",
+  "ignore": ["node_modules", "dist"],
+  "exec": "node --loader ts-node/esm index.ts",
+  "signal": "SIGTERM"
+}

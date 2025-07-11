@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axiosClient from '../api/axiosClient'; // <-- Import your axios client
+import axiosClient from '../api/axiosClient';
 import InputField from '../components/InputField';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -26,7 +26,8 @@ const Login = () => {
       // localStorage.setItem('token', response.data.token);
 
       navigate('/blog');
-    } catch (err: any) {
+    } 
+    catch (err: any) {
       setError(err.response?.data?.message || 'Invalid email or password.');
     }
   };

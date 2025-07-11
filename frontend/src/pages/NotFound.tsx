@@ -1,4 +1,3 @@
-// src/pages/NotFound.tsx
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from 'react-router-dom';
@@ -9,6 +8,7 @@ const NotFound = () => {
     <>
       <Navbar />
       <div className="min-h-screen bg-[#FFFFFF] dark:bg-[#F5F2F5] flex flex-col items-center justify-center p-6">
+        
         {/* Heading */}
         <h2 className="text-4xl font-bold text-[#2E2E2E] dark:text-[#000000] mb-6">
           Page Not Found
